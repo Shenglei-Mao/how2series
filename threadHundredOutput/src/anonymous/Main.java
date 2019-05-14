@@ -3,6 +3,7 @@ package anonymous;
 public class Main {
 
 	public static void main(String[] args) {
+		//Hello World
 
 		Object someObject = new Object();
 		
