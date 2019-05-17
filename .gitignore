@@ -1,8 +1,4 @@
-HELP.md
-/target/
-!.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
+TS ###
 .apt_generated
 .classpath
 .factorypath
