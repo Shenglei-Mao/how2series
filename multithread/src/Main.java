@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -32,5 +30,18 @@ public class Main {
 //
 //        }
 //        System.out.println("At the end");
+        String a = "\1\2";
+        System.out.println(a);
+        System.out.printf("%s %s %n", a, a);
+//        a.replaceAll("\\", "\\\\");
+        a = a.replaceAll("\1", "\\\\1");
+        a = a.replaceAll("\2", "\\2");
+        System.out.println(a);
+
+
+        String b = "\\a\\b";
+        System.out.println(b);
+        String c = "\\\\1";
+        System.out.println(c);
     }
 }
