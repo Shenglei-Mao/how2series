@@ -1,7 +1,10 @@
-import java.util.*;
+//import java.util.*;
 //import utils.DateUtil;
 //import utils.FileUtil;
 //import com.alibaba.fastjson.JSONObject;
+
+import java.util.Queue;
+import java.util.Random;
 
 public class Main {
 
@@ -38,30 +41,34 @@ public class Main {
 //
 //        FileUtil.stringToFile(jsonString);
 
-        /*
-        10亿级别排序
-         */
-        System.out.println("Start the sorting algorithm");
-        float[] arr= new float[100000000*10];
 
-        for (int i = 0; i < 100000000*10; i++){
-            Random random=new Random();
-            float v = random.nextFloat() * 50f;
-            arr[i]=v;
-        }
-        System.out.println();
-//        for (int i = 0; i < 1000000; i++){
-//            System.out.println(arr[i]);
+
+
+//        long startTime = System.currentTimeMillis();
+//
+//        Sort sort = new Sort();
+//        sort.largeDataSort();
+////        System.out.println("GC in Main start");
+////        sort = null;
+////        System.gc();
+//        Integer[] arr0 = new Integer[100000000];
+//        Random random = new Random();
+//        for (int i = 0; i < 100000000; i++){
+//
+//            int v = random.nextInt();
+//            arr0[i]=v;
 //        }
-        float sizeOfArr = (float)100000000*10 * 4 / 1024 / 1024 / 1024; //unit is GB
-        System.out.println("10亿级别float总共消耗内存为： " + sizeOfArr + "GB");
+//        System.out.println("New Array Generate Successfully");
+//
+//        System.out.println("Total time of the whole program execution is: " + (System.currentTimeMillis() - startTime));
+//        while (true){
+//
+//        }
 
-        long sortStartTime = System.currentTimeMillis();
-        Arrays.sort(arr);
-        long sortEndTIme = System.currentTimeMillis();
-        System.out.println("10亿级别排序时间： " + (sortEndTIme - sortStartTime));
+
 
     }
+
 
 
 
