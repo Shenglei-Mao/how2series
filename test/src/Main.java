@@ -1,4 +1,8 @@
+import javafx.util.Pair;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -50,5 +54,23 @@ public class Main {
         Integer t8 = new Integer(1);
         Integer t9 = new Integer(1);
         System.out.println(t8 == t9);
+
+        List<String> l = new ArrayList<>();
+
+
+        System.out.printf("------------------------------------------------------------------------------------%n");
+
+        TreeNode t = new TreeNode(3);
+        t.left = new TreeNode(9);
+        t.left.left = new TreeNode(1);
+        t.left.right = new TreeNode(2);
+        t.right = new TreeNode(20);
+        t.right.left = new TreeNode(15);
+        t.right.right = new TreeNode(17);
+        Solution sol = new Solution();
+        int depth = sol.minDepth(t);
+//        System.out.println(depth);
+
+
     }
 }
