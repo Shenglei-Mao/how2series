@@ -65,12 +65,13 @@ public class Main {
         t.left.left = new TreeNode(1);
         t.left.right = new TreeNode(2);
         t.right = new TreeNode(20);
-        t.right.left = new TreeNode(15);
+        t.right.left = null;
         t.right.right = new TreeNode(17);
         Solution sol = new Solution();
-        int depth = sol.minDepth(t);
-//        System.out.println(depth);
-
+//        int depth = sol.minDepth(t);
+////        System.out.println(depth);
+        sol.flatten(t);
+        System.out.println(t.right.val);
 
     }
 }
