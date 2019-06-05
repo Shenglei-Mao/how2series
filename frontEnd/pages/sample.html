@@ -1,0 +1,83 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<span>当前时间:</span>
+<script>
+    var d = new Date();
+    document.write(d.getHours());
+    document.write(":");
+    document.write(d.getMinutes());
+    document.write(":");
+    document.write(d.getSeconds());
+    document.write(":");
+    document.write(d.getMilliseconds());
+
+    function refresh(){
+        location.reload();
+    }
+</script>
+<br>
+<button onclick="refresh()">刷新当前页面</button>
+<br>
+
+<script>
+    document.write("文档内容");
+    document.write("文档显示区域的宽度"+window.innerWidth);
+    document.write("<br>");
+    document.write("文档显示区域的高度"+window.innerHeight);
+    document.write("<br>");
+    document.write("浏览器的宽度:"+window.outerWidth);
+    document.write("<br>");
+    document.write("浏览器的高度:"+window.outerHeight);
+
+</script>
+
+<script type="text/javascript">
+    document.write("<p>浏览器产品名称：");
+    document.write(navigator.appName + "</p>");
+
+    document.write("<p>浏览器版本号：");
+    document.write(navigator.appVersion + "</p>");
+
+    document.write("<p>浏览器内部代码：");
+    document.write(navigator.appCodeName + "</p>");
+
+    document.write("<p>操作系统：");
+    document.write(navigator.platform + "</p>");
+
+    document.write("<p>是否启用Cookies：");
+    document.write(navigator.cookieEnabled + "</p>");
+
+    document.write("<p>浏览器的用户代理报头：");
+    document.write(navigator.userAgent + "</p>");
+</script>
+
+<script type="text/javascript">
+    document.write("用户的屏幕分辨率: ")
+    document.write(screen.width + "*" + screen.height)
+    document.write("<br />")
+    document.write("可用区域大小: ")
+    document.write(screen.availWidth + "*" + screen.availHeight)
+    document.write("<br />")
+</script>
+
+
+<!--<p>每隔1秒钟，通过document.write打印当前时间</p>-->
+
+<!--<script>-->
+
+<!--    function printTime(){-->
+<!--        var d = new Date();-->
+<!--        document.write(d.getHours());-->
+<!--        document.write(":");-->
+<!--        document.write(d.getMinutes());-->
+<!--        document.write(":");-->
+<!--        document.write(d.getSeconds());-->
+<!--        document.close();-->
+<!--    }-->
+
+<!--    var t = setInterval(printTime,1000);-->
+
+<!--</script>-->

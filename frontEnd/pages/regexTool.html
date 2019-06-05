@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>源字符串：</td>
+            <td><textarea id="src">example</textarea></td>
+        </tr>
+        <tr>
+            <td>查询：</td>
+            <td><input type="text" id="keyword" value="a"></td>
+        </tr>
+        <tr>
+            <td>替换为：</td>
+            <td><input type="text" id="replacement" value="e"></td>
+        </tr>
+        <tr>
+            <td>替换结果：</td>
+            <td><textarea id="res"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="replace()">替换</button>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
+
+<style>
+    td {
+        width: 100px;
+        height: 30px;
+        /*border: 1px solid red;*/
+        font-weight: bold;
+    }
+    textarea {
+        width: 150px;
+        height: 30px;
+    }
+    input {
+        width: 150px;
+        height: 30px;
+    }
+</style>
+
+<script>
+    function replace(){
+        var src = document.getElementById("src").value;
+        var keyword = document.getElementById("keyword").value;
+        var replacement = document.getElementById("replacement").value;
+        var regExp = new RegExp(keyword, "g");
+        src = src.replace(regExp, replacement);
+        document.getElementById("res").value = src;
+    }
+</script>
