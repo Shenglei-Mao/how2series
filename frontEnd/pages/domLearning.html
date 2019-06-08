@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <div id="d1">hello HTML DOM</div>
+    <script>
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+        var  div1 = document.getElementById("d1");
+        p("document的节点名称:"+document.nodeName);
+        p("div元素节点的节点名称:"+div1.nodeName);
+        p("div下属性节点的节点名称:"+div1.attributes[0].nodeName);
+        p("div下内容节点的节点名称:"+div1.childNodes[0].nodeName);
+    </script>
+</html>

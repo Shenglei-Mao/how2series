@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="loadJS()">test3041.js</button>
+<script>
+    function loadJS(){
+        var newScript = document.createElement('script');
+        newScript.src = 'http://how2j.cn/study/test3041.js';
+        var firstScript = document.getElementsByTagName("script")[0];
+        console.log(firstScript);
+        firstScript.parentNode.insertBefore(newScript,firstScript);
+    }
+</script>
+</body>
+</html>
