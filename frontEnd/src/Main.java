@@ -51,7 +51,12 @@ public class Main {
         System.out.println(a.hashCode() == b.hashCode());
 
 
-
+        int i = 1;
+        int j = 2;
+        i = j = 3;
+        System.out.println(i);
+        System.out.println(j);
+        Character.toLowerCase('A');
 
 
 
