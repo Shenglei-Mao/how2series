@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.*;
 
 public class Main {
 
@@ -59,6 +60,26 @@ public class Main {
         Character.toLowerCase('A');
 
 
+        List<Integer> list = new ArrayList();
+        list.contains(1);
+
+        HashMap<String, List<String>> dict = new HashMap<>();
+        dict.containsKey("hello");
+
+        StringBuilder sb1 = new StringBuilder("abc");
+        StringBuilder sb2 = new StringBuilder("abc");
+        System.out.println(sb1.equals(sb2));
+        String s = "abc";
+        s.equals("abc");
+
+        HashSet<String> set = new HashSet<>();
+        set.contains("abc");
+//        Map<Integer, Integer> map = new HashMap<Integer, Integer>(){
+//            @Override
+//            public Integer put(Integer key, Integer value) {
+//                return 1;
+//            }
+//        };
 
 
     }
