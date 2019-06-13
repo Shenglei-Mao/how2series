@@ -11,14 +11,14 @@ public class Main {
         File f = new File("./docs/English.txt");
 //        System.out.println(f.getAbsolutePath());
 //        System.out.println(f.length());
-        byte[] content = new byte[(int)f.length()];
-        try(
+        byte[] content = new byte[(int) f.length()];
+        try (
             FileInputStream fs = new FileInputStream(f);
 
         ) {
             fs.read(content);
             for (byte b : content) {
-                int i = b&0xff;
+                int i = b & 0xff;
                 System.out.println(b);
                 System.out.println(Integer.toHexString(i));
             }
@@ -26,21 +26,21 @@ public class Main {
             System.out.println(str);
 //            throw new IOException();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         short s1 = 1;
-        s1 = (short)(s1 + 1);
+        s1 = (short) (s1 + 1);
         s1++;
         System.out.println(s1);
 
         int t = 0;
         outloop:
-        while (t < 5){
+        while (t < 5) {
             System.out.println(t);
-            while(t < 5){
-                System.out.println(t+1);
+            while (t < 5) {
+                System.out.println(t + 1);
 //                break;
                 break outloop;
             }
@@ -51,14 +51,12 @@ public class Main {
         System.out.println(a.equals(b));
         System.out.println(a.hashCode() == b.hashCode());
 
-
         int i = 1;
         int j = 2;
         i = j = 3;
         System.out.println(i);
         System.out.println(j);
         Character.toLowerCase('A');
-
 
         List<Integer> list = new ArrayList();
         list.contains(1);
@@ -80,7 +78,6 @@ public class Main {
 //                return 1;
 //            }
 //        };
-
 
     }
 }
