@@ -1,0 +1,108 @@
+<!--author: Shenglei Mao-->
+<!--放置于超级管理员tab中-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="lib/Chart.min.js"></script>
+<!--<canvas id="myChart" width="100px" height="100px"></canvas>-->
+<div style="width:400px;margin-left: 50px;">
+    <canvas id="myChart"></canvas>
+</div>
+<script>
+    function getDay(day){
+        var today = new Date();
+        var targetday_milliseconds=today.getTime() + 1000*60*60*24*day;
+        today.setTime(targetday_milliseconds);
+        var tYear = today.getFullYear();
+        var tMonth = today.getMonth();
+        var tDate = today.getDate();
+        tMonth = doHandleMonth(tMonth + 1);
+        tDate = doHandleMonth(tDate);
+        // return tYear+"-"+tMonth+"-"+tDate;
+        return tMonth + "/" + tDate;
+    }
+    function doHandleMonth(month){
+        var m = month;
+        if(month.toString().length == 1){
+            m = "0" + month;
+        }
+        return m;
+    }
+
+    var weekArray = new Array(7);
+    for (var i = 0; i < weekArray.length; i++){
+        weekArray[i] = getDay(i - 6);
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+
+            // labels: ['6/8', '6/9', '6/10', '6/11', '6/12', '6/13', '6/14'],
+            labels: weekArray,
+            datasets: [{
+                // data需要修改为动态
+                data: [7, 12, 19, 7, 10, 5, 3],
+                backgroundColor: [
+                    'rgba(205, 201, 201, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(205, 201, 201, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend:{
+                display: false
+            },
+            title: {
+                display: true,
+                text: '管理员总访问日志'
+            },
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: true
+                            // //Include a dollar sign in the ticks
+                            // callback: function(value, index, values) {
+                            //     return '$' + value;
+                            // }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'active operation'
+                        }
+                    }
+                ],
+                // xAxes: [{
+                //     scaleLabel: {
+                //         display: true,
+                //         labelString: 'date'
+                //     }
+                // }]
+            }
+        }
+    });
+</script>

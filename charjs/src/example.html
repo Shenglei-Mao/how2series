@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>moveball</title>
+    <style type="text/css">
+        #box{width:20px;height:20px;background-color:orange;position:absolute;border:1px solid black;border-radius:50%;}
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    var box=document.getElementById('box');
+    box.style.left="600";
+    box.style.top="300px";
+    var n=0;                 //正弦函数的横坐标，理解为时间轴好一点。
+    function rotation()
+    {
+        box.style.left=(600-Math.sin(1/180)*80)+Math.sin(n/180)*80;   //300是小球的没开始运动的初始位置，n表示时间轴，后边是除数是为了将时间细分，使运动更平滑，80表示半径。
+        box.style.top=(300-Math.cos(1/180)*80)+Math.cos(n/180)*80;    //第一个括号中的内容是为了让小球在开始运动时处于初始位置（600,300）
+        n++;
+        if(n>180*4*Math.PI)n=0;   //  0 到 4π 为一个转动周期，如果要半圆，只需将n的取值范围减半，如需反方向转动，调换left和top的值即可。
+        setTimeout(rotation,1);
+    }
+    rotation();
+</script>
+</body>
+</html>
