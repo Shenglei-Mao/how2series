@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script src="jquery.min.js"></script>
+<!--<script >-->
+
+<!--    $(function(){-->
+<!--        document.write("文档加载成功!");-->
+<!--        document.close();-->
+<!--    });-->
+
+<!--</script>-->
+
+
+<script >
+
+    $(function(){
+        document.write( $("#d") );
+        document.write(document.getElementById("d").toString()); //说明JQuery打开了个新的document
+        document.close();
+    });
+
+</script>
+
+<div id="d">Hello JQuery</div>

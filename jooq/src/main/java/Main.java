@@ -22,7 +22,11 @@ public class Main {
         // PreparedStatement and ResultSet are handled by jOOQ, internally
         try (Connection conn = DriverManager.getConnection(url, userName, password)) {
             DSLContext create = DSL.using(conn, SQLDialect.MYSQL);
-            Result<Record> result = create.select().from(AUTHOR).fetch();
+            Result<Record> result = create.
+                                    select().
+                                    from(AUTHOR).
+                                    where(AUTHOR.LAST_NAME.eq("zhang")).
+                                    fetch();
 
             for (Record r : result) {
                 Integer id = r.getValue(AUTHOR.ID);
