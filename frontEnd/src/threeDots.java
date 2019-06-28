@@ -1,12 +1,23 @@
 import com.sun.istack.internal.NotNull;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.util.Arrays;
 
-@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@RequiredArgsConstructor
+@Data(staticConstructor = "where")
+//@Data
 public class threeDots {
 
+//    @NonNull
     String dot1;
+
+//    @NonNull
+    String dot2;
+
+    String dot3;
 
     public static void main(String[] args) {
         /*case1
@@ -42,6 +53,7 @@ public class threeDots {
         System.out.println(fieldNames);
         System.out.println(Arrays.deepToString(fieldNames));
 
+
 //        List<String> list = new ArrayList<>();
 //        System.out.println(list);
 //
@@ -49,19 +61,40 @@ public class threeDots {
 //        System.out.println(intArray);
     }
 
+    public void getType(){
+        System.out.println(this.getClass().getGenericSuperclass());
+    }
+
 }
 
 class test {
     public static void main(String[] args) {
-        threeDots td = new threeDots();
+//        threeDots td_noArg = new threeDots();
+//        System.out.println(td_noArg);
+//
+//        threeDots td2 = new threeDots();
+//        System.out.println(td2 == td_noArg);
 
-        System.out.println(td);
-        td.setDot1("dot1");
-        System.out.println(td.getDot1());
+        System.out.println(threeDots.where().equals(threeDots.where()));
+        threeDots bean = threeDots.where();
+        System.out.println(bean);
+        bean.getType();
 
-        System.out.println(td.canEqual(new Integer(1)));
-        System.out.println(td);
 
-        System.out.println("你好");
+
+
+//        threeDots td_allArg = new threeDots("dot1", "dot2", "dot3");
+//        System.out.println(td_allArg);
+//
+//        threeDots td_reqArg = new threeDots("dot1", "dot2");
+//        System.out.println(td_reqArg);
+
+//        td.setDot1("dot1");
+//        System.out.println(td.getDot1());
+//
+//        System.out.println(td.canEqual(new Integer(1)));
+//        System.out.println(td);
+//
+//        System.out.println("你好");
     }
 }
