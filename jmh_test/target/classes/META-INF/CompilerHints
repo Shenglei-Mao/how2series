@@ -1,0 +1,6 @@
+dontinline,org/sample/generated/MyBenchmark.testMethod_Throughput_measurementLoop
+dontinline,org/sample/generated/MyBenchmark.testMethod_AverageTime_measurementLoop
+dontinline,org/sample/generated/MyBenchmark.testMethod_SampleTime_measurementLoop
+dontinline,org/sample/generated/MyBenchmark.testMethod_SingleShotTime
+inline,org/openjdk/jmh/logic/BlackHole.clearSinks
+inline,org/sample/MyBenchmark.testMethod

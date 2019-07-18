@@ -1,6 +1,5 @@
 package com.yufu.lcm.eventhook.listener.util;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 import java.util.Arrays;
@@ -13,7 +12,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 @Slf4j
-public class SimpleConsumer {
+public class SimpleConsumer_2 {
     private final static ScheduledThreadPoolExecutor scheduledPool = new ScheduledThreadPoolExecutor(3);
     public static void main(String[] args) throws Exception {
 //        if(args.length == 0){
@@ -27,7 +26,7 @@ public class SimpleConsumer {
         Properties props = new Properties();
 
         props.put("bootstrap.servers", "localhost:9092");
-        props.put("group.id", "test");
+        props.put("group.id", "test_2");
         props.put("enable.auto.commit", "true");
         props.put("auto.commit.interval.ms", "1000");
         props.put("session.timeout.ms", "30000");
@@ -43,6 +42,7 @@ public class SimpleConsumer {
 
         //print the topic name
         System.out.println("Subscribed to topic " + topicName);
+        int i = 0;
 
 //        while (true) {
 //            ConsumerRecords<String, String> records = consumer.poll(100);
@@ -55,12 +55,12 @@ public class SimpleConsumer {
 
         Runnable runnable = () -> {
 //            Duration duration = Duration.ofSeconds(1);
-            Duration duration = Duration.ofMillis(0);
+            Duration duration = Duration.ofMillis(100);
             ConsumerRecords<String, String> records = consumer.poll(duration);
             for (ConsumerRecord<String, String> record : records) {
 
 
-                    System.out.println("The standard event is: " + record.key() + record.value());
+                System.out.println("The standard event is: " + record.key() + record.value());
 
             }
             log.info("Poll finished, will poll after 1 seconds. Current consumer is: " +
