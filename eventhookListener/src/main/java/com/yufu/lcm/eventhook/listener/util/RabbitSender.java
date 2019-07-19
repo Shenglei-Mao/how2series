@@ -31,20 +31,20 @@ public class RabbitSender {
 //        }
 
         factory.setHost("localhost");
-        factory.setPort(5673);
+        factory.setPort(5672);
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
 
 
             channel.queueDeclare(QUEUE_NAMEA, false, false, false, null);
             channel.queueDeclare(QUEUE_NAMEB, false, false, false, null);
-            String messageA = "Hello World from A from 5673 queueA!";
-            String messageB = "Hello World from B from 5673 queueB!";
-            for (int i = 0; i < 20; i++) {
+            String messageA = "Hello World from A from 5672 queueA!";
+            String messageB = "Hello World from B from 5672 queueB!";
+            for (int i = 0; i < 10000; i++) {
                 channel.basicPublish("", QUEUE_NAMEA, null, messageA.getBytes());
-                log.info(" [x] Sent from 5673 queueA'" + messageA + "'");
-                channel.basicPublish("", QUEUE_NAMEB, null, messageB.getBytes());
-                log.info(" [x] Sent from 5673 queueB'" + messageB + "'");
+                log.info(" [x] Sent from 5672 queueA'" + messageA + "'");
+//                channel.basicPublish("", QUEUE_NAMEB, null, messageB.getBytes());
+//                log.info(" [x] Sent from 5672 queueB'" + messageB + "'");
             }
 
         }

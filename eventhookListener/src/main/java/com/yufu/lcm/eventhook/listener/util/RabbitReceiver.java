@@ -4,6 +4,7 @@ import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
 
 public class RabbitReceiver {
     private final static String QUEUE_NAMEA = "companyA";
@@ -34,7 +35,7 @@ public class RabbitReceiver {
 
         ConnectionFactory factory2 = new ConnectionFactory();
         factory2.setHost("localhost");
-        factory2.setPort(5673);
+        factory2.setPort(5672);
         try {
             Connection connection = factory2.newConnection();
             Channel channel = connection.createChannel();
@@ -44,34 +45,34 @@ public class RabbitReceiver {
             System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-                System.out.println(" [x] Received 5673'" + message + "'");
-                channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+                System.out.println(" [x] Received 5672'" + message + "'");
+//                channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
                 System.out.println(delivery.getEnvelope().getDeliveryTag());
             };
-            channel.basicConsume(QUEUE_NAMEA, false, deliverCallback, consumerTag -> { });
+            channel.basicConsume(QUEUE_NAMEA, true, deliverCallback, consumerTag -> { });
 //            channel.basicConsume(QUEUE_NAMEB, false, deliverCallback, consumerTag -> { });
 
-            boolean autoAck = false;
-            channel.basicConsume(QUEUE_NAMEB, autoAck, "a-consumer-tag",
-                new DefaultConsumer(channel) {
-                    @Override
-                    public void handleDelivery(String consumerTag,
-                                               Envelope envelope,
-                                               AMQP.BasicProperties properties,
-                                               byte[] body)
-                        throws IOException
-                    {
-                        long deliveryTag = envelope.getDeliveryTag();
-                        // positively acknowledge a single delivery, the message will
-                        // be discarded
-                        String message = new String(body);
-                        System.out.println(message);
-                        channel.basicAck(deliveryTag, true);
-                        System.out.println(deliveryTag);
-
-                    }
-                });
-
+//            boolean autoAck = false;
+//            channel.basicConsume(QUEUE_NAMEB, autoAck, "a-consumer-tag",
+//                new DefaultConsumer(channel) {
+//                    @Override
+//                    public void handleDelivery(String consumerTag,
+//                                               Envelope envelope,
+//                                               AMQP.BasicProperties properties,
+//                                               byte[] body)
+//                        throws IOException
+//                    {
+//                        long deliveryTag = envelope.getDeliveryTag();
+//                        // positively acknowledge a single delivery, the message will
+//                        // be discarded
+//                        String message = new String(body);
+//                        System.out.println(message);
+//                        channel.basicAck(deliveryTag, true);
+//                        System.out.println(deliveryTag);
+//
+//                    }
+//                });
+            Thread.sleep(200);
             connection.close();
         }catch (Exception e){
             e.printStackTrace();
