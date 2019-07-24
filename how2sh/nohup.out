@@ -1,3 +1,18 @@
+tail: out.txt: No such file or directory
+
+==> Number.sh <==
+	echo $word
+	# echo Count
+done
+
+echo ${#words[*]}
+echo ${!words[*]}
+echo ${words[7]}
+echo ${words[*]}
+
+#如何用forloop在bash中打印array？
+
+==> Number.sh <==
 #! /bin/bash
 read -p "Enter a number: " num
 if (( ${num}< 10 ))

@@ -1,3 +1,5 @@
+from collections import Counter
+
 n = [1, 2, 1]
 avg = sum(n) / len(n)
 print(avg)
@@ -8,7 +10,6 @@ print(Z)
 s = ""
 if s:
     print("hello")
-
 
 X = "This isn't \"funny\""
 print(X)
@@ -22,3 +23,20 @@ print(s.split(" "))
 print(s.split('d'))
 
 print(n[-2])
+
+l = [2, 5, 7]
+l.insert(1, 20)
+print(l)
+l.remove(13)
+print(l)
+
+k = []
+print(k)
+if not k:
+    print("k value to false")
+    print("But k is not false or true using \"is\" operator")
+    print(k is True)
+
+l.sort()
+
+# Test "=", shallow copy and deep copy

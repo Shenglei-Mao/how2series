@@ -73,6 +73,8 @@ public class RabbitReceiver {
 //                    }
 //                });
             Thread.sleep(200);
+//            TimeUnit.SECONDS.sleep(1);
+
             connection.close();
         }catch (Exception e){
             e.printStackTrace();

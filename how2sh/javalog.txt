@@ -1,0 +1,4 @@
+Student.java:1: 错误: 需要class, interface或enum
+dkadkada
+^
+1 个错误
