@@ -40,3 +40,7 @@ if not k:
 l.sort()
 
 # Test "=", shallow copy and deep copy
+
+print("Hello World!")
+
+print('I am "{}" and I am "{}".'.format('Smart', 'Happy'))
