@@ -9,6 +9,7 @@ import java.util.Stack;
  * DFS Tree Traversal Without Revursion
  * LeetCode 94 In-order
  * LeetCode 144 Pre-order
+ * LeetCode XXX Post-order (without using mirror pre-order)
  */
 public class Question {
     public static void main(String[] args) {
@@ -28,6 +29,15 @@ public class Question {
         Integer i = new Integer(1);
         list.remove(i);
         System.out.println(list);
+
+        System.out.println(f(3, 3));
+    }
+    private static int f(int x, int y) {
+        if (y == 0) {
+            return x;
+        }
+
+        return f(x*y, y-1);
     }
 }
 
@@ -64,7 +74,39 @@ class Solution {
         return result;
     }
 
-    /*In-order traversal iteratively with a stack*/
+    /*Morris Inorder Tree Traversal*/
+    public List<Integer> morrisInorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        TreeNode cur = root;
+        TreeNode pre = null;
+
+        //TODO while condition
+        while (cur != null) {
+            /*base case - while no left node*/
+            if (cur.left == null) {
+                result.add(cur.val);
+                cur = cur.right;
+                continue;
+            }
+            /*find the prenode, event when thread established*/
+            pre = cur.left;
+            while (pre.right != null && pre.right != cur) {
+                pre = pre.right;
+            }
+
+            if (pre.right == null) {
+                pre.right = cur;
+                cur = cur.left;
+            } else {
+                result.add(cur.val);
+                pre.right = null;
+                cur = cur.right;
+            }
+        }
+        return result;
+    }
+
+    /*Pre-order traversal iteratively with a stack*/
     public List<Integer> preorderTraversal(TreeNode root) {
         //TODO In Java, Using Deque(LinkedList or ArrayDeque) Instead In Real Project When No Synchronized Concern
         List<Integer> result = new ArrayList<>();
@@ -82,6 +124,33 @@ class Solution {
             if (cur.left != null) {
                 stack.add(cur.left);
             }
+        }
+        return result;
+    }
+
+    /*Post-order traversal iteratively with a stack*/
+    public List<Integer> postorderTraversal(TreeNode root) {
+        //TODO In Java, Using Deque(LinkedList or ArrayDeque) Instead In Real Project When No Synchronized Concern
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                if (root.right != null) {
+                    stack.push(root.right);
+                }
+                stack.push(root);
+                root = root.left;
+            }
+            TreeNode cur = stack.pop();
+            if (!stack.isEmpty() && cur.right == stack.peek()) {
+                root = stack.pop();
+                stack.add(cur);
+            } else {
+                result.add(cur.val);
+                root = null;
+            }
+
         }
         return result;
     }

@@ -3,6 +3,7 @@ package com.ctci.chap4.tree.and.graph.ex5;
 /**
  * @author : Michael M
  * LeetCode 98
+ * Is valid binary tree
  */
 public class Question {
 }
