@@ -13,7 +13,6 @@ public class Question {
 
         quicksort(nums, 0, nums.length - 1);
 
-        /*quicksort is a in-place sort*/
         return nums;
     }
 

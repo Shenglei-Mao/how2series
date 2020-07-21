@@ -32,12 +32,13 @@ public class Question {
 
         System.out.println(f(3, 3));
     }
+
     private static int f(int x, int y) {
         if (y == 0) {
             return x;
         }
 
-        return f(x*y, y-1);
+        return f(x * y, y - 1);
     }
 }
 
@@ -46,7 +47,9 @@ class TreeNode {
     TreeNode left;
     TreeNode right;
 
-    TreeNode(int x) { val = x; }
+    TreeNode(int x) {
+        val = x;
+    }
 }
 
 
@@ -88,7 +91,7 @@ class Solution {
                 cur = cur.right;
                 continue;
             }
-            /*find the prenode, event when thread established*/
+            /*find the pre node, even when thread established*/
             pre = cur.left;
             while (pre.right != null && pre.right != cur) {
                 pre = pre.right;

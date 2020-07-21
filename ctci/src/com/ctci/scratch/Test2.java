@@ -12,6 +12,7 @@ public class Test2 {
         Solution2 solution2 = new Solution2();
         int[] nums = new int[]{1, 1, 3};
         solution2.permuteUnique(nums);
+        System.out.println(1 << 1);
     }
 
 }
