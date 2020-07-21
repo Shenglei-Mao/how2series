@@ -1,4 +1,4 @@
 # how2j
-This repo is for learning purpose.
+Playground
 
 Shenglei Mao
