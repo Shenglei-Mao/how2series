@@ -33,3 +33,5 @@ def if_meet(times: list) -> int:
 
 print(if_meet([50000,1,1,1]))
 
+
+
