@@ -1,11 +1,14 @@
-import math
-
 a = [1, 2, 3]
-b = [1, 2, 3]
-print(a == b)
+b = [4, 5, 6]
 
-print(math.sqrt(10))
 
-print(math.floor(3))
-a.insert(1, -1)
-print(a)
+for i, j in zip(a, b):
+    print(i, j)
+
+
+c = list(zip(a, b))
+print(c)
+print(type(c[0]))
+
+out = sorted(a, reverse=True)
+print(out)
