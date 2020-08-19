@@ -24,7 +24,7 @@ class LRUCache:
         next_node.prev = node
 
     def delete_end(self):  # head -> node1 -> tail
-        """return key"""
+        """return: key"""
         node = self.tail.prev
         prev_node = self.tail.prev.prev
         prev_node.next = self.tail

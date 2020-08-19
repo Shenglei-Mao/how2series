@@ -1,7 +1,5 @@
-import bisect
 from typing import List
-# TODO Optimizing
-# This version is wrong
+
 
 class Solution:
     def twoSum(self, nums, start_idx, num, result):
@@ -9,17 +7,13 @@ class Solution:
         find two sum a and b that equal -num from nums[start_idx...end] and append [num, a, b] to result
         important: unique pair!
         """
-        target = -num
-        left_boundary = bisect.bisect_left(nums, target - nums[-1], start_idx + 1)
-        right_boundary = bisect.bisect_right(nums, target // 2, left_boundary)
-        if left_boundary >= len(nums) - 1 or right_boundary >= len(nums): return
-        left, right = left_boundary, right_boundary  # pointer
+        left, right = start_idx, len(nums) - 1  # pointer
         left_prev, right_prev = nums[left] - 1, nums[right] + 1  # number
         while left < right:
-            while left < right_boundary and nums[left] == left_prev:
+            while left < len(nums) - 1 and nums[left] == left_prev:
                 left_prev = nums[left]
                 left += 1
-            while right > left_boundary and nums[right] == right_prev:
+            while right > start_idx and nums[right] == right_prev:
                 right_prev = nums[right]
                 right -= 1
             if left >= right: return
