@@ -1,4 +1,3 @@
-# how2j
-Playground
+# how2series
 
-Shenglei Mao
+MISC/CHAOS
